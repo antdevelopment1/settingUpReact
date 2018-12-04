@@ -14,17 +14,34 @@ console.log('App.js is running');
 //     </div>
 // );
 
+var newApp = {
+    title: 'Great',
+    subtitle: 'Time'
+};
+var templateThree = (
+    <div>
+        <h1>{newApp.title}</h1>
+        <h2>{newApp.subtitle}</h2>
+    </div>
+);
+
 var user = {
     name: 'April',
     age: 27,
     location: 'New York'
 };
 
+function getLocation(location) {
+    if (location) {
+        return <p>Location: {location}</p>;
+    } 
+}
+
 var templateTwo = (
     <div>
         <h1>{user.name}</h1>
         <p>Age: {user.age}</p>
-        <p>Location: {user.location}</p>
+        {getLocation(user.location)}
     </div>
 )
 

@@ -16,11 +16,41 @@ console.log('App.js is running');
 //     </div>
 // );
 
+var newApp = {
+    title: 'Great',
+    subtitle: 'Time'
+};
+var templateThree = React.createElement(
+    'div',
+    null,
+    React.createElement(
+        'h1',
+        null,
+        newApp.title
+    ),
+    React.createElement(
+        'h2',
+        null,
+        newApp.subtitle
+    )
+);
+
 var user = {
     name: 'April',
     age: 27,
     location: 'New York'
 };
+
+function getLocation(location) {
+    if (location) {
+        return React.createElement(
+            'p',
+            null,
+            'Location: ',
+            location
+        );
+    }
+}
 
 var templateTwo = React.createElement(
     'div',
@@ -36,12 +66,7 @@ var templateTwo = React.createElement(
         'Age: ',
         user.age
     ),
-    React.createElement(
-        'p',
-        null,
-        'Location: ',
-        user.location
-    )
+    getLocation(user.location)
 );
 
 var appRoot = document.getElementById('app');
