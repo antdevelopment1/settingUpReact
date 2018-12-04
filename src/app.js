@@ -14,11 +14,17 @@ console.log('App.js is running');
 //     </div>
 // );
 
+var user = {
+    name: 'April',
+    age: 27,
+    location: 'New York'
+};
+
 var templateTwo = (
     <div>
-        <h1>April Copes</h1>
-        <p>Age: 26</p>
-        <p>Location: New York</p>
+        <h1>{user.name}</h1>
+        <p>Age: {user.age}</p>
+        <p>Location: {user.location}</p>
     </div>
 )
 
