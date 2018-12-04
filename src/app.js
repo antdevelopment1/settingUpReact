@@ -13,21 +13,9 @@ console.log('App.js is running');
 //         </ol>
 //     </div>
 // );
-
-var newApp = {
-    title: 'Great',
-    subtitle: 'Time'
-};
-var templateThree = (
-    <div>
-        <h1>{newApp.title}</h1>
-        <h2>{newApp.subtitle}</h2>
-    </div>
-);
-
 var user = {
     name: 'April',
-    age: 27,
+    age: 21,
     location: 'New York'
 };
 
@@ -37,10 +25,24 @@ function getLocation(location) {
     } 
 }
 
+var newApp = {
+    title: 'Great',
+    subtitle: 'Time',
+    options: ['One', 'Two', 'Three']
+};
+var templateThree = (
+    <div>
+        <h1>{newApp.title}</h1>
+        {newApp.subtitle && <p>{newApp.subtitle}</p>}
+        <p>{(newApp.options && newApp.options.length > 3) ? 'Here are your options' : 'No options available'}</p>
+    </div>
+);
+
+
 var templateTwo = (
     <div>
-        <h1>{user.name}</h1>
-        <p>Age: {user.age}</p>
+        <h1>{user.name ? user.name : 'Annoymous'}</h1>
+        {(user.age && user.age >= 18) && <p>Age: {user.age}</p>}
         {getLocation(user.location)}
     </div>
 )
@@ -48,4 +50,4 @@ var templateTwo = (
 var appRoot = document.getElementById('app');
 
 
-ReactDOM.render(templateTwo, appRoot);
+ReactDOM.render(templateThree, appRoot);

@@ -15,29 +15,9 @@ console.log('App.js is running');
 //         </ol>
 //     </div>
 // );
-
-var newApp = {
-    title: 'Great',
-    subtitle: 'Time'
-};
-var templateThree = React.createElement(
-    'div',
-    null,
-    React.createElement(
-        'h1',
-        null,
-        newApp.title
-    ),
-    React.createElement(
-        'h2',
-        null,
-        newApp.subtitle
-    )
-);
-
 var user = {
     name: 'April',
-    age: 27,
+    age: 21,
     location: 'New York'
 };
 
@@ -52,15 +32,40 @@ function getLocation(location) {
     }
 }
 
+var newApp = {
+    title: 'Great',
+    subtitle: 'Time',
+    options: ['One', 'Two', 'Three']
+};
+var templateThree = React.createElement(
+    'div',
+    null,
+    React.createElement(
+        'h1',
+        null,
+        newApp.title
+    ),
+    newApp.subtitle && React.createElement(
+        'p',
+        null,
+        newApp.subtitle
+    ),
+    React.createElement(
+        'p',
+        null,
+        newApp.options && newApp.options.length > 3 ? 'Here are your options' : 'No options available'
+    )
+);
+
 var templateTwo = React.createElement(
     'div',
     null,
     React.createElement(
         'h1',
         null,
-        user.name
+        user.name ? user.name : 'Annoymous'
     ),
-    React.createElement(
+    user.age && user.age >= 18 && React.createElement(
         'p',
         null,
         'Age: ',
@@ -71,4 +76,4 @@ var templateTwo = React.createElement(
 
 var appRoot = document.getElementById('app');
 
-ReactDOM.render(templateTwo, appRoot);
+ReactDOM.render(templateThree, appRoot);
