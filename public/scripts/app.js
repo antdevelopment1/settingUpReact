@@ -4,76 +4,77 @@ console.log('App.js is running');
 
 // JSX - JavaScript XML
 
-// var template = (
-//     <div>
-//         <h1>Indecision App</h1>
-//         <p>This is a lot of fun</p>
-//         <ol>
-//             <li>List item 1</li>
-//             <li>List item 2</li>
-//             <li>List item 3</li>
-//         </ol>
-//     </div>
-// );
-var user = {
-    name: 'April',
-    age: 21,
-    location: 'New York'
-};
-
-function getLocation(location) {
-    if (location) {
-        return React.createElement(
-            'p',
-            null,
-            'Location: ',
-            location
-        );
-    }
-}
-
-var newApp = {
-    title: 'Great',
-    subtitle: 'Time',
-    options: ['One', 'Two', 'Three']
-};
-var templateThree = React.createElement(
+var template = React.createElement(
     'div',
     null,
     React.createElement(
         'h1',
         null,
-        newApp.title
-    ),
-    newApp.subtitle && React.createElement(
-        'p',
-        null,
-        newApp.subtitle
+        'Indecision App'
     ),
     React.createElement(
         'p',
         null,
-        newApp.options && newApp.options.length > 3 ? 'Here are your options' : 'No options available'
+        'This is a lot of fun'
+    ),
+    React.createElement(
+        'ol',
+        null,
+        React.createElement(
+            'li',
+            null,
+            'List item 1'
+        ),
+        React.createElement(
+            'li',
+            null,
+            'List item 2'
+        ),
+        React.createElement(
+            'li',
+            null,
+            'List item 3'
+        )
     )
 );
 
+var count = 0;
+var addOne = function addOne() {
+    console.log('addOne');
+};
+var minusOne = function minusOne() {
+    console.log('minusOne');
+};
+var reset = function reset() {
+    console.log('Reset');
+};
 var templateTwo = React.createElement(
     'div',
     null,
     React.createElement(
         'h1',
         null,
-        user.name ? user.name : 'Annoymous'
+        'Count: ',
+        count
     ),
-    user.age && user.age >= 18 && React.createElement(
-        'p',
-        null,
-        'Age: ',
-        user.age
+    React.createElement(
+        'button',
+        { onClick: addOne },
+        '+1'
     ),
-    getLocation(user.location)
+    React.createElement(
+        'button',
+        { onClick: minusOne },
+        '-1'
+    ),
+    React.createElement(
+        'button',
+        { onClick: reset },
+        'Reset'
+    )
 );
+console.log(templateTwo);
 
 var appRoot = document.getElementById('app');
 
-ReactDOM.render(templateThree, appRoot);
+ReactDOM.render(templateTwo, appRoot);

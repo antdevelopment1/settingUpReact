@@ -2,52 +2,39 @@ console.log('App.js is running');
 
 // JSX - JavaScript XML
 
-// var template = (
-//     <div>
-//         <h1>Indecision App</h1>
-//         <p>This is a lot of fun</p>
-//         <ol>
-//             <li>List item 1</li>
-//             <li>List item 2</li>
-//             <li>List item 3</li>
-//         </ol>
-//     </div>
-// );
-var user = {
-    name: 'April',
-    age: 21,
-    location: 'New York'
-};
-
-function getLocation(location) {
-    if (location) {
-        return <p>Location: {location}</p>;
-    } 
-}
-
-var newApp = {
-    title: 'Great',
-    subtitle: 'Time',
-    options: ['One', 'Two', 'Three']
-};
-var templateThree = (
+const template = (
     <div>
-        <h1>{newApp.title}</h1>
-        {newApp.subtitle && <p>{newApp.subtitle}</p>}
-        <p>{(newApp.options && newApp.options.length > 3) ? 'Here are your options' : 'No options available'}</p>
+        <h1>Indecision App</h1>
+        <p>This is a lot of fun</p>
+        <ol>
+            <li>List item 1</li>
+            <li>List item 2</li>
+            <li>List item 3</li>
+        </ol>
     </div>
 );
 
-
-var templateTwo = (
+let count = 0;
+const addOne = () => {
+    console.log('addOne')
+};
+const minusOne = () => {
+    console.log('minusOne');
+};
+const reset = () => {
+    console.log('Reset');
+};
+const templateTwo = (
     <div>
-        <h1>{user.name ? user.name : 'Annoymous'}</h1>
-        {(user.age && user.age >= 18) && <p>Age: {user.age}</p>}
-        {getLocation(user.location)}
+        <h1>Count: {count}</h1>
+        <button onClick={addOne}>+1</button>
+        <button onClick={minusOne}>-1</button>
+        <button onClick={reset}>Reset</button>
     </div>
-)
+);
+console.log(templateTwo);
 
-var appRoot = document.getElementById('app');
+const appRoot = document.getElementById('app');
 
 
-ReactDOM.render(templateThree, appRoot);
+ReactDOM.render(templateTwo, appRoot);
