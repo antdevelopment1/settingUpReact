@@ -2,17 +2,17 @@ console.log('App.js is running');
 
 // JSX - JavaScript XML
 
-var template = (
-    <div>
-        <h1>Indecision App</h1>
-        <p>This is a lot of fun</p>
-        <ol>
-            <li>List item 1</li>
-            <li>List item 2</li>
-            <li>List item 3</li>
-        </ol>
-    </div>
-);
+// var template = (
+//     <div>
+//         <h1>Indecision App</h1>
+//         <p>This is a lot of fun</p>
+//         <ol>
+//             <li>List item 1</li>
+//             <li>List item 2</li>
+//             <li>List item 3</li>
+//         </ol>
+//     </div>
+// );
 
 var templateTwo = (
     <div>
