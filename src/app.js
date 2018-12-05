@@ -22,10 +22,15 @@ const onFormSubmit = (e) => {
 }
 
 const onRemoveAll = () => {
-
     app.options = [];
     renderSubmitOption();
 }
+
+const onMakeDesision = () => {
+    const randomNumber = Math.floor(Math.random() * app.options.length);
+    const option = app.options[randomNumber];
+    alert(option);
+};
 
 // Create remove all button abouve list
 // On click wipe the array an re render
@@ -40,6 +45,7 @@ const renderSubmitOption = () => {
             {app.subtitle && <p>{app.subtitle}</p>}
             <p>{app.options.length > 0 ? 'Here are your options' : 'No options available'}</p>
             <p>{app.options.length}</p>
+            <button disabled={app.options.length === 0} onClick={onMakeDesision}>What should I do?</button>
             <button onClick={onRemoveAll}>Remove All</button>
             <ol>
             {

@@ -23,9 +23,14 @@ var onFormSubmit = function onFormSubmit(e) {
 };
 
 var onRemoveAll = function onRemoveAll() {
-
     app.options = [];
     renderSubmitOption();
+};
+
+var onMakeDesision = function onMakeDesision() {
+    var randomNumber = Math.floor(Math.random() * app.options.length);
+    var option = app.options[randomNumber];
+    alert(option);
 };
 
 // Create remove all button abouve list
@@ -57,6 +62,11 @@ var renderSubmitOption = function renderSubmitOption() {
             'p',
             null,
             app.options.length
+        ),
+        React.createElement(
+            'button',
+            { disabled: app.options.length === 0, onClick: onMakeDesision },
+            'What should I do?'
         ),
         React.createElement(
             'button',
