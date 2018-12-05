@@ -1,23 +1,26 @@
 class IndesisionApp extends React.Component {
     render() {
+        const title = 'Indesision';
+        const subtitle = 'Put you life in the hands of a computer';
+        const options = ['Things one', 'Thing two', 'Thing three'];
+
         return (
             <div>
-                <Header />
+                <Header title={title} subtitle={subtitle}/>
                 <Action />
-                <Options />
+                <Options options={options}/>
                 <AddOption />
             </div>
-        )
+        );
     }
 }
-
 
 class Header extends React.Component {
     render() {
         return (
             <div>
-                <h1>Indesision</h1>
-                <h2>Stop Making Desisions</h2>
+                <h1>{this.props.title}</h1>
+                <h2>{this.props.subtitle}</h2>
             </div>
         );
     }
@@ -33,22 +36,28 @@ class Action extends React.Component {
     }
 }
 
+
+// Render new p taf for each option (set text, set key)
 class Options extends React.Component {
     render() {
         return (
             <div>
-                Options Component Here
-                <Option />
+              {
+                  this.props.options.map( option => {
+                   return <Option key={option} optionText={option} />
+                  })
+              }
             </div>
         );
     }
 }
 
+
 class Option extends React.Component {
     render() {
         return (
             <div>
-                Option Component Here
+                {this.props.optionText}
             </div>
         )
     }
@@ -64,3 +73,5 @@ class AddOption extends React.Component {
 
 
 ReactDOM.render(<IndesisionApp />, document.getElementById('app'));
+
+
